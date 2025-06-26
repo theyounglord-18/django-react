@@ -12,7 +12,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://127.0.0.1:8000/api/token/", credentials);
+      const res = await axios.post("http://34.9.200.189:8000/api/token/", credentials);
       const { token, role } = res.data;
 
       Cookies.set("token", token);
