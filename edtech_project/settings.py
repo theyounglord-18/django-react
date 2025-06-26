@@ -54,10 +54,13 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000"
-]
+    "http://localhost:3000",
+    "http://localhost:3004"]
 
 AUTH_USER_MODEL = 'edu_app.User'
+
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
