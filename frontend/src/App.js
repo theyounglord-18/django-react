@@ -13,7 +13,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route
           path="/dashboard"
-          element={<ProtectedRoute component={Dashboard} />}
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
         />
       </Routes>
     </Router>
@@ -21,3 +25,4 @@ function App() {
 }
 
 export default App;
+

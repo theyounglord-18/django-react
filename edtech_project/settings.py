@@ -46,8 +46,7 @@ MIDDLEWARE = [
 
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://34.9.200.189:3000"
+   "http://localhost:3004"
 ]
 
 # Authentication

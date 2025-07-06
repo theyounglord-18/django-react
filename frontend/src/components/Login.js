@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import "../App.css"
 
 function Login() {
   const [credentials, setCredentials] = useState({ username: "", password: "" });
@@ -12,7 +13,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://34.9.200.189:8000/api/token/", credentials);
+      const res = await axios.post("http://127.0.0.1:8000/api/token/", credentials);
       const { token, role } = res.data;
 
       Cookies.set("token", token);
@@ -25,14 +26,28 @@ function Login() {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input name="username" placeholder="Username" onChange={handleChange} required />
-        <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <div className="login-container">
+  <h2 className="login-title">Login</h2>
+  <form className="login-form" onSubmit={handleSubmit}>
+    <input
+      className="login-input"
+      name="username"
+      placeholder="Username"
+      onChange={handleChange}
+      required
+    />
+    <input
+      className="login-input"
+      name="password"
+      type="password"
+      placeholder="Password"
+      onChange={handleChange}
+      required
+    />
+    <button className="login-button" type="submit">Login</button>
+  </form>
+</div>
+
   );
 }
 

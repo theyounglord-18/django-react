@@ -11,7 +11,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://34.9.200.189:8000/api/users/", formData);
+      await axios.post("http://127.0.0.1:8000/api/users/", formData);
       alert("Registration successful!");
       navigate("/login");
     } catch (error) {
@@ -20,20 +20,50 @@ function Register() {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <input name="username" placeholder="Username" onChange={handleChange} required />
-        <input name="email" type="email" placeholder="Email" onChange={handleChange} required />
-        <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
-        <select name="role" onChange={handleChange}>
-          <option value="STUDENT">STUDENT</option>
-          <option value="ADMIN">ADMIN</option>
-          <option value="INSTRUCTOR">INSTRUCTOR</option>
-        </select>
-        <button type="submit">Register</button>
-      </form>
-    </div>
+    <div className="register-container">
+  <h2 className="register-title">Register</h2>
+  <form className="register-form" onSubmit={handleSubmit}>
+    <input
+      className="register-input"
+      name="username"
+      placeholder="Username"
+      onChange={handleChange}
+      required
+    />
+    <input
+      className="register-input"
+      type="email"
+      name="email"
+      placeholder="Email"
+      onChange={handleChange}
+      required
+    />
+    <input
+      className="register-input"
+      type="password"
+      name="password"
+      placeholder="Password"
+      onChange={handleChange}
+      required
+    />
+    <select
+      className="register-select"
+      name="role"
+      onChange={handleChange}
+      required
+    >
+      <option value="">Select Role</option>
+      <option value="STUDENT">STUDENT</option>
+      <option value="ADMIN">ADMIN</option>
+      <option value="INSTRUCTOR">INSTRUCTOR</option>
+    </select>
+    <button className="register-button" type="submit">Register</button>
+  </form>
+  <p className="login-prompt">
+    Already registered? <a href="/login" className="login-link">Login</a>
+  </p>
+</div>
+
   );
 }
 

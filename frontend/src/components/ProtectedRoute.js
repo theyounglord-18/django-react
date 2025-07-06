@@ -3,14 +3,14 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-function ProtectedRoute({ component: Component }) {
+function ProtectedRoute({ children }) {
   const token = Cookies.get("token");
 
   if (!token) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/login" replace />;
   }
 
-  return <Component />;
+  return children;
 }
 
 export default ProtectedRoute;
