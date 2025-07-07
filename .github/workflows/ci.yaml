@@ -9,8 +9,7 @@ on:
 jobs:
     build and deploy:
       runs-on: ubuntu-latest 
-      
-      steps:
+    steps:
         - name: Chechout Code
           uses: actions/checkout@v3
         
