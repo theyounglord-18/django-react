@@ -38,6 +38,6 @@ jobs:
       - name: Build & Push Django image
         uses: docker/build-push-action@v5
         with:
-          context: ./edu_app
+          context: ./edtech_project
           push: true
           tags: ${{ env.DJANGO_IMAGE }}:latest
