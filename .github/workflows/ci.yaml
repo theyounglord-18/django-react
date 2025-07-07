@@ -1,4 +1,4 @@
- name: Fullstack App CI/CD Pipeline
+name: Fullstack App CI/CD Pipeline
 
 on:
   push:
@@ -8,11 +8,11 @@ on:
 env:
   DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
   DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-  FRONTEND_IMAGE: yourusername/react-frontend
-  BACKEND_IMAGE: yourusername/django-backend
+  FRONTEND_IMAGE: theyounglord-18/react-frontend
+  BACKEND_IMAGE: theyounglord-18/django-backend
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -36,10 +36,10 @@ jobs:
           push: true
           tags: ${{ env.FRONTEND_IMAGE }}:latest
 
-      -name: Build and push React Backend image
+      - name: Build and push Django backend image
         uses: docker/build-push-action@v5
         with:
-            context: ./EDU_TECH
-            file: ./EDU_TECH/Dockerfile
-            push: true
-            tags: ${{env.DACKEND_IMAGE}}:latest 
+          context: ./EDU_TECH
+          file: ./EDU_TECH/Dockerfile
+          push: true
+          tags: ${{ env.BACKEND_IMAGE }}:latest
