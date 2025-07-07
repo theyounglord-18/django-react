@@ -42,4 +42,5 @@ jobs:
           push: true
           tags: ${{ env.DJANGO_IMAGE }}:latest
       - name: Run Docker Compose stack
-        run: docker-compose up -d
+        run: docker compose up -d
+
